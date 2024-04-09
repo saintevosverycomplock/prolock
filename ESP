@@ -1,0 +1,41 @@
+-- Function to create a label above the player's head
+local function createPlayerLabel(player)
+    -- Create a BillboardGui to hold the label
+    local billboardGui = Instance.new("BillboardGui")
+    billboardGui.Adornee = player.Character.Head
+    billboardGui.AlwaysOnTop = true
+    billboardGui.Size = UDim2.new(0, 100, 0, 50)
+    billboardGui.StudsOffset = Vector3.new(0, 3, 0)
+    billboardGui.Parent = player.PlayerGui
+    
+    -- Create a TextLabel to display the player's name
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Size = UDim2.new(1, 0, 1, 0)
+    textLabel.BackgroundTransparency = 1
+    textLabel.TextColor3 = Color3.new(1, 1, 1)
+    textLabel.TextStrokeTransparency = 0.5
+    textLabel.TextStrokeColor3 = Color3.new(0, 0, 0)
+    textLabel.Font = Enum.Font.SourceSansBold
+    textLabel.TextScaled = true
+    textLabel.Text = player.Name
+    textLabel.Parent = billboardGui
+end
+
+-- Function to handle new players joining
+local function onPlayerAdded(player)
+    player.CharacterAdded:Connect(function(character)
+        -- Wait for the character's head to load
+        character:WaitForChild("Head")
+        
+        -- Create the label above the player's head
+        createPlayerLabel(player)
+    end)
+end
+
+-- Loop to keep checking for new players joining
+while true do
+    -- Connect the function to the PlayerAdded event
+    game.Players.PlayerAdded:Connect(onPlayerAdded)
+    -- Wait for a while before checking again
+    wait(5) -- Adjust this value based on how frequently you want to check for new players
+end
