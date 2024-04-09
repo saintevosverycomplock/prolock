@@ -19,3 +19,4 @@ end
 
 -- Call the function to start moving in a circle
 moveInCircle()
+print("test")
