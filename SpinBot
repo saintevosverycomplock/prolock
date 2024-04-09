@@ -1,0 +1,21 @@
+local player = game:GetService("Players").LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local speed = 50 -- Adjust speed as needed
+local radius = 10 -- Adjust radius of circle as needed
+
+-- Function to make the character move in a circle
+local function moveInCircle()
+    while true do
+        for angle = 0, 360, 5 do -- Adjust angle increment as needed
+            local x = math.cos(math.rad(angle)) * radius
+            local z = math.sin(math.rad(angle)) * radius
+            local targetPosition = character.Position + Vector3.new(x, 0, z)
+            humanoid:MoveTo(targetPosition)
+            wait(0.1) -- Adjust wait time as needed
+        end
+    end
+end
+
+-- Call the function to start moving in a circle
+moveInCircle()
