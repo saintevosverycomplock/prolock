@@ -5,9 +5,9 @@ local humanoid = character:WaitForChild("Humanoid")
 
 -- Function to handle player's chat
 local function onChatted(message)
-    if message == "/Faster" then
+    if message:lower() == "faster" then
         humanoid.WalkSpeed = humanoid.WalkSpeed + 20
-    elseif message == "/Slower" then
+    elseif message:lower() == "slower" then
         humanoid.WalkSpeed = math.max(humanoid.WalkSpeed - 1, 0) -- Ensures walkspeed never goes below 0
     end
 end
