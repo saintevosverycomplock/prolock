@@ -32,10 +32,10 @@ local function onPlayerAdded(player)
     end)
 end
 
--- Loop to keep checking for new players joining
-while true do
-    -- Connect the function to the PlayerAdded event
-    game.Players.PlayerAdded:Connect(onPlayerAdded)
-    -- Wait for a while before checking again
-    wait(5) -- Adjust this value based on how frequently you want to check for new players
+-- Connect the function to the PlayerAdded event
+game.Players.PlayerAdded:Connect(onPlayerAdded)
+
+-- Keep track of existing players
+for _, player in ipairs(game.Players:GetPlayers()) do
+    onPlayerAdded(player)
 end
