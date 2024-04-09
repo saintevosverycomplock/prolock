@@ -621,3 +621,128 @@ local plr = game.Players.LocalPlayer
             sector9:AddButton("Test", function()
           loadstring(game:HttpGet(("https://raw.githubusercontent.com/Robobo2022/Fun/main/spinbot.lua"), true))()--  loadstring(game:HttpGet('https://raw.githubusercontent.com/SpaceYes/Lua/Main/DaHood.Lua'))()
             end)
+
+local Buy = Tabs.Misc:AddLeftGroupbox('AutoBuy')
+    Buy:AddDropdown('BuyGuns', {
+        Values = { '[Revolver]', '[Double Barrel SG]', '[Tactical Shotgun]', '[SMG]', '[Knife]', '[Shotgun]', '[Flame Thrower]', '[RPG]', '[AK-47]'   },
+        Default = 20, -- number index of the value / string
+        Multi = false, -- true / false, allows multiple choices to be selected
+    
+        Text = 'Weapons',
+        Tooltip = 'Auto Buy Weapons', -- Information shown when you hover over the textbox
+    })
+    
+    Options.BuyGuns:OnChanged(function()
+        if Options.BuyGuns.Value == "[Revolver]" then
+            local k = game.Workspace.Ignored.Shop['[Revolver] - $1339']
+            local d = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = k.Head.CFrame + Vector3.new(0, 3, 0)
+            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - k.Head.Position).Magnitude <= 50 then
+                wait(.2)
+                fireclickdetector(k:FindFirstChild("ClickDetector"), 4)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(d)
+            end
+        end
+    
+        if Options.BuyGuns.Value == "[Double Barrel SG]" then
+            local d = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+            local k = game.Workspace.Ignored.Shop['[Double-Barrel SG] - $1442']
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = k.Head.CFrame + Vector3.new(0, 3, 0)
+            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - k.Head.Position).Magnitude <= 50 then
+                wait(.2)
+                fireclickdetector(k:FindFirstChild("ClickDetector"), 4)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(d)
+            end
+        end
+    
+        if Options.BuyGuns.Value == "[Shotgun]" then
+            local k = game.Workspace.Ignored.Shop['[Shotgun] - $1288']
+            local d = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = k.Head.CFrame + Vector3.new(0, 3, 0)
+            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - k.Head.Position).Magnitude <= 50 then
+                wait(.2)
+                fireclickdetector(k:FindFirstChild("ClickDetector"), 4)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(d)
+            end
+        end
+    
+        if Options.BuyGuns.Value == "[Tactical Shotgun]" then
+            local k = game.Workspace.Ignored.Shop['[TacticalShotgun] - $1751']
+            local d = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = k.Head.CFrame + Vector3.new(0, 3, 0)
+            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - k.Head.Position).Magnitude <= 50 then
+                wait(.2)
+                fireclickdetector(k:FindFirstChild("ClickDetector"), 4)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(d)
+            end
+        end
+        if Options.BuyGuns.Value == "[SMG]" then
+            local k = game.Workspace.Ignored.Shop['[SMG] - $773']
+            local d = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = k.Head.CFrame + Vector3.new(0, 3, 0)
+            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - k.Head.Position).Magnitude <= 50 then
+                wait(.2)
+                fireclickdetector(k:FindFirstChild("ClickDetector"), 4)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(d)
+            end
+        end
+    
+        if Options.BuyGuns.Value == "[Knife]" then
+            local k = game.Workspace.Ignored.Shop['[Knife] - $155']
+            local d = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = k.Head.CFrame + Vector3.new(0, 3, 0)
+            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - k.Head.Position).Magnitude <= 50 then
+                wait(.2)
+                fireclickdetector(k:FindFirstChild("ClickDetector"), 4)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(d)
+            end
+        end
+    
+        if Options.BuyGuns.Value == "[RPG]" then
+            local k = game.Workspace.Ignored.Shop['[RPG] - $6180']
+            local d = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = k.Head.CFrame + Vector3.new(0, 3, 0)
+            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - k.Head.Position).Magnitude <= 50 then
+                wait(.2)
+                fireclickdetector(k:FindFirstChild("ClickDetector"), 4)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(d)
+            end
+        end
+    
+        if Options.BuyGuns.Value == "[AK-47]" then
+            local k = game.Workspace.Ignored.Shop['[AK47] - $2318']
+            local d = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = k.Head.CFrame + Vector3.new(0, 3, 0)
+            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - k.Head.Position).Magnitude <= 50 then
+                wait(.2)
+                fireclickdetector(k:FindFirstChild("ClickDetector"), 4)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(d)
+            end
+        end
+    
+        if Options.BuyGuns.Value == "[Flame Thrower]" then
+            local k = game.Workspace.Ignored.Shop['[Flamethrower] - $25750']
+            local d = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = k.Head.CFrame + Vector3.new(0, 3, 0)
+            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - k.Head.Position).Magnitude <= 50 then
+                wait(.2)
+                fireclickdetector(k:FindFirstChild("ClickDetector"), 4)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(d)
+            end
+        end
+    
+    end)
+    
+    Buy:AddDropdown('BuyAmmo', {
+        Values = { '[Taco]', '[Hamburger]', '[Pizza]', '[Popcorn]', '[Cranberry]', '[Chicken]', '[Donut]', ''   },
+        Default = 20, -- number index of the value / string
+        Multi = false, -- true / false, allows multiple choices to be selected
+    
+        Text = 'Weapons',
+        Tooltip = 'Auto Buy Weapons', -- Information shown when you hover over the textbox
+    })
+    
+    Options.BuyAmmo:OnChanged(function()
+    
+    end)
+    
