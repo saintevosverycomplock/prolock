@@ -2,51 +2,15 @@
 local player = game:GetService("Players").LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoid = character:WaitForChild("Humanoid")
-local speed = 5 -- Default speed
-local maxSpeed = 20 -- Maximum speed
-local minSpeed = 1 -- Minimum speed
-local gui = Instance.new("ScreenGui")
-gui.Parent = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
-local frame = Instance.new("Frame")
-frame.Size = UDim2.new(0, 200, 0, 50)
-frame.Position = UDim2.new(0, 10, 0, 10)
-frame.BackgroundColor3 = Color3.new(0, 0, 0)
-frame.BackgroundTransparency = 0.5
-frame.Parent = gui
-local scrollbar = Instance.new("UISlider")
-scrollbar.Size = UDim2.new(0, 150, 0, 20)
-scrollbar.Position = UDim2.new(0, 25, 0, 15)
-scrollbar.Parent = frame
 
--- Function to handle scrollbar value changes
-scrollbar.MouseButton1Down:Connect(function()
-    while true do
-        speed = math.floor(scrollbar.Value * maxSpeed)
-        wait(0.1)
-    end
-end)
-
--- Function to handle character movement based on speed
-local function moveCharacter()
-    while true do
-        local direction = Vector3.new(0, 0, 0)
-        if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.W) then
-            direction = direction + Vector3.new(0, 0, -1)
-        end
-        if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.S) then
-            direction = direction + Vector3.new(0, 0, 1)
-        end
-        if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.A) then
-            direction = direction + Vector3.new(-1, 0, 0)
-        end
-        if game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.D) then
-            direction = direction + Vector3.new(1, 0, 0)
-        end
-        direction = direction.unit * speed
-        humanoid:Move(direction)
-        wait(0.1)
+-- Function to handle player's chat
+local function onChatted(message)
+    if message == "+" then
+        humanoid.WalkSpeed = humanoid.WalkSpeed + 20
+    elseif message == "-" then
+        humanoid.WalkSpeed = math.max(humanoid.WalkSpeed - 1, 0) -- Ensures walkspeed never goes below 0
     end
 end
 
--- Call the function to move the character
-moveCharacter()
+-- Connect the function to the Chatted event
+player.Chatted:Connect(onChatted)
